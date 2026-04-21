@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Baby Shower · Samuel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #b8d8f8;
+    --sky-light: #e8f4ff;
+    --navy: #1a3a5c;
+    --gold: #c9a96e;
+    --cream: #fdfaf5;
+    --blush: #f0e6d3;
+    --soft-blue: #d6eaf8;
+    --star: #ffd166;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: #0a1628;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ─── PANTALLAS ─── */
+  .screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 10;
+  }
+  .screen.hidden { opacity: 0; pointer-events: none; transform: scale(1.04); }
+
+  /* ─── PANTALLA 1: INTRO OSCURA ─── */
+  #screen-1 {
+    background: radial-gradient(ellipse at 60% 40%, #1a3a5c 0%, #0a1628 70%);
+    overflow: hidden;
+  }
+
+  .stars-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .star-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle 2.5s infinite ease-in-out alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.1; transform: scale(0.8); }
+    to   { opacity: 0.9; transform: scale(1.2); }
+  }
+
+  .intro-content {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    z-index: 2;
+  }
+
+  .moon-icon {
+    font-size: 4rem;
+    animation: moonFloat 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  @keyframes moonFloat {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50%      { transform: translateY(-12px) rotate(5deg); }
+  }
+
+  .intro-pre {
+    color: var(--sky);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards ease;
+    font-weight: 300;
+  }
+
+  .intro-title {
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    font-size: clamp(3.2rem, 14vw, 5rem);
+    line-height: 1;
+    margin: 0.3rem 0 1rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards ease;
+  }
+
+  .intro-sub {
+    color: var(--sky);
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.9s 1.4s forwards ease;
+    line-height: 1.6;
+    max-width: 300px;
+  }
+
+  .intro-btn {
+    margin-top: 2.5rem;
+    padding: 0.85rem 2.4rem;
+    background: linear-gradient(135deg, var(--gold), #e6c278);
+    color: var(--navy);
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeUp 0.9s 2s forwards ease;
+    box-shadow: 0 4px 24px rgba(201,169,110,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .intro-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.5); }
+  .intro-btn:active { transform: scale(0.97); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── PANTALLA 2: MENSAJE PERSONAL ─── */
+  #screen-2 {
+    background: linear-gradient(160deg, #1a3a5c 0%, #0f2340 100%);
+    padding: 2rem;
+  }
+
+  .message-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,216,248,0.2);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  .message-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 60% 30%, rgba(184,216,248,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .envelope-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.2rem;
+    animation: bounceIn 0.6s 0.3s both;
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  .message-title {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .message-body {
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(0.88rem, 3.5vw, 0.98rem);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .highlight-text {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .msg-btn {
+    margin-top: 2rem;
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--sky);
+    border: 1.5px solid rgba(184,216,248,0.5);
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+  }
+  .msg-btn:hover { background: rgba(184,216,248,0.1); border-color: var(--sky); }
+
+  /* ─── PANTALLA 3: TRANSICIÓN ─── */
+  #screen-3 {
+    background: #0a1628;
+    z-index: 20;
+  }
+
+  .transition-content {
+    text-align: center;
+    position: relative;
+  }
+
+  .big-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(4rem, 20vw, 7rem);
+    color: white;
+    line-height: 1;
+    opacity: 0;
+    animation: namePop 1s 0.2s both;
+  }
+  @keyframes namePop {
+    0% { opacity: 0; transform: scale(0.6) rotate(-3deg); }
+    70% { opacity: 1; transform: scale(1.05) rotate(1deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+  }
+
+  .transition-sub {
+    color: var(--sky);
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 1s both;
+  }
+
+  .progress-bar-wrap {
+    width: 200px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    margin: 2.5rem auto 0;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sky), var(--gold));
+    width: 0;
+    border-radius: 2px;
+    animation: fillBar 2.2s 0.5s both ease-out;
+  }
+  @keyframes fillBar {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ─── PANTALLA 4: INVITACIÓN PRINCIPAL ─── */
+  #screen-4 {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--cream);
+    display: block;
+    z-index: 5;
+  }
+  #screen-4.hidden { display: none; }
+  #screen-4:not(.hidden) { display: block; }
+
+  .inv-wrapper {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Fondo decorativo */
+  .inv-bg-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 55%;
+    background: linear-gradient(170deg, #b8d8f8 0%, #d6eaf8 50%, var(--cream) 100%);
+    z-index: 0;
+  }
+  .inv-bg-circles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .inv-bg-circles::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(184,216,248,0.4);
+  }
+  .inv-bg-circles::after {
+    content: '';
+    position: absolute;
+    top: 200px; left: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(201,169,110,0.1);
+  }
+
+  .inv-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 1.8rem 4rem;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Cabecera */
+  .inv-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
+  }
+
+  .inv-announce {
+    color: var(--navy);
+    font-size: clamp(0.85rem, 3.2vw, 0.95rem);
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+  }
+
+  .inv-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(5rem, 22vw, 7.5rem);
+    color: var(--navy);
+    line-height: 0.95;
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 3px 0 rgba(26,58,92,0.12);
+  }
+
+  .inv-tag {
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Ilustración central (CSS art bebé) */
+  .baby-illo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+
+  /* Globos CSS */
+  .balloon {
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+    animation: floatBalloon 3s ease-in-out infinite alternate;
+  }
+  .b1 { width: 45px; height: 52px; background: #b8d8f8; top: 25px; left: 10px; animation-delay: 0s; }
+  .b2 { width: 38px; height: 44px; background: var(--gold); top: 15px; left: 60px; animation-delay: 0.4s; }
+  .b3 { width: 42px; height: 49px; background: #90c2e8; top: 30px; right: 12px; animation-delay: 0.8s; }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px;
+    height: 14px;
+    background: rgba(26,58,92,0.3);
+  }
+  @keyframes floatBalloon {
+    from { transform: translateY(0) rotate(-2deg); }
+    to   { transform: translateY(-8px) rotate(2deg); }
+  }
+
+  /* Cochecito de bebé */
+  .stroller {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+  }
+  .stroller-body {
+    width: 60px;
+    height: 38px;
+    background: var(--navy);
+    border-radius: 16px 16px 4px 4px;
+    position: absolute;
+    top: 0; left: 10px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+  }
+  .stroller-body::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 8px;
+    width: 44px; height: 20px;
+    background: var(--sky);
+    border-radius: 10px 10px 2px 2px;
+  }
+  .stroller-handle {
+    width: 50px;
+    height: 3px;
+    background: var(--navy);
+    position: absolute;
+    top: 3px;
+    right: 0;
+    border-radius: 2px;
+    transform: rotate(-12deg);
+    transform-origin: right center;
+  }
+  .wheel {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--navy);
+    position: absolute;
+    bottom: 0;
+    border: 3px solid var(--sky);
+  }
+  .wheel-l { left: 10px; }
+  .wheel-r { right: 10px; }
+
+  /* Divider decorativo */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* Cards de info */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.2rem 0.8rem;
+    box-shadow: 0 2px 16px rgba(26,58,92,0.08);
+    border: 1px solid rgba(184,216,248,0.4);
+  }
+  .info-card.full { grid-column: 1 / -1; }
+
+  .info-icon { font-size: 1.6rem; margin-bottom: 0.4rem; display: block; }
+  .info-label {
+    color: var(--gold);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .info-value {
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .info-sub {
+    color: rgba(26,58,92,0.5);
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+  }
+
+  /* Sección lleva lo que quieras */
+  .regalo-section {
+    background: linear-gradient(135deg, #1a3a5c, #0f2340);
+    border-radius: 20px;
+    padding: 1.8rem 1.5rem;
+    margin: 1.5rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .regalo-section::before {
+    content: '🎁';
+    font-size: 6rem;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    opacity: 0.08;
+  }
+  .regalo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--sky);
+  }
+  .regalo-text {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+  }
+  .regalo-highlight {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* Cierre */
+  .closing {
+    margin-top: 2.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .closing-sign {
+    font-family: 'Great Vibes', cursive;
+    color: var(--gold);
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    display: block;
+    margin: 0.5rem 0;
+  }
+  .closing-from {
+    color: rgba(26,58,92,0.5);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* Footer dots */
+  .footer-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--sky);
+    opacity: 0.4;
+  }
+  .dot:nth-child(2) { background: var(--gold); opacity: 0.7; }
+  .dot:nth-child(3) { opacity: 0.25; }
+
+  /* Estrellas decorativas en invitación */
+  .deco-star {
+    position: absolute;
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0.3;
+    animation: spin 8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Scroll reveal para pantalla 4 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ SCREEN 1: INTRO ══════════ -->
+<div class="screen" id="screen-1">
+  <div class="stars-bg" id="stars"></div>
+  <div class="intro-content">
+    <span class="moon-icon">🌙</span>
+    <p class="intro-pre">Espera... que esto es especial</p>
+    <h1 class="intro-title">Algo hermoso<br>está por llegar</h1>
+    <p class="intro-sub">Hay noticias que se merecen ser celebradas con toda la energía del universo ✨</p>
+    <button class="intro-btn" onclick="goTo(2)">Abrir &nbsp;→</button>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 2: MENSAJE PERSONAL ══════════ -->
+<div class="screen hidden" id="screen-2">
+  <div class="message-card">
+    <span class="envelope-emoji">💌</span>
+    <h2 class="message-title">Si esto te llegó,<br>no fue por accidente</h2>
+    <p class="message-body">
+      Este enlace no está en internet, no se comparte en redes, no aparece en Google.<br><br>
+      Llegó a ti porque hay personas que te tienen muy presente y que quieren que seas parte de algo bonito.<br><br>
+      <span class="highlight-text">Eso ya dice mucho de ti.</span> 🩵
+    </p>
+    <button class="msg-btn" onclick="goTo(3)">Ver la invitación →</button>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 3: TRANSICIÓN ══════════ -->
+<div class="screen hidden" id="screen-3">
+  <div class="transition-content">
+    <h1 class="big-name">Samuel</h1>
+    <p class="transition-sub">viene en camino</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 4: INVITACIÓN ══════════ -->
+<div class="screen hidden" id="screen-4">
+  <div class="inv-wrapper">
+    <div class="inv-bg-top"></div>
+    <div class="inv-bg-circles"></div>
+
+    <div class="inv-content">
+
+      <div class="reveal">
+        <span class="inv-badge">✦ Invitación Oficial ✦</span>
+        <p class="inv-announce">Los papás de</p>
+        <h1 class="inv-name">Samuel</h1>
+        <p class="inv-tag">te invitan a su baby shower</p>
+      </div>
+
+      <!-- Ilustración -->
+      <div class="baby-illo reveal">
+        <div class="balloon b1"></div>
+        <div class="balloon b2"></div>
+        <div class="balloon b3"></div>
+        <div class="stroller">
+          <div class="stroller-handle"></div>
+          <div class="stroller-body"></div>
+          <div class="wheel wheel-l"></div>
+          <div class="wheel wheel-r"></div>
+        </div>
+      </div>
+
+      <!-- Info cards -->
+      <div class="info-grid reveal">
+        <div class="info-card">
+          <span class="info-icon">📅</span>
+          <p class="info-label">Fecha</p>
+          <p class="info-value">Viernes<br>02 de Mayo</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">🕐</span>
+          <p class="info-label">Hora</p>
+          <p class="info-value">Por confirmar</p>
+          <p class="info-sub">TBD</p>
+        </div>
+        <div class="info-card full">
+          <span class="info-icon">📍</span>
+          <p class="info-label">Lugar</p>
+          <p class="info-value">Conjunto Residencial<br>Monte Azul</p>
+          <p class="info-sub">Armenia, Quindío</p>
+        </div>
+      </div>
+
+      <!-- Lo que quieran llevar -->
+      <div class="divider reveal">✦</div>
+
+      <div class="regalo-section reveal">
+        <p class="regalo-title">¿Llevar algo?</p>
+        <p class="regalo-text">
+          Tu presencia ya es el mejor regalo del mundo, de verdad.<br><br>
+          Dicho eso, si el corazón te dice traer algo para Samuel, 
+          <span class="regalo-highlight">lo que salga del alma está perfecto</span> — 
+          desde un pañal hasta un abrazo, todo suma para darle la bienvenida que se merece 🍼
+        </p>
+      </div>
+
+      <!-- Cierre -->
+      <div class="closing reveal">
+        <p class="closing-quote">
+          "Cada bebé llega al mundo con el mensaje de que Dios aún no ha perdido la esperanza en la humanidad."
+        </p>
+        <div class="divider">✦</div>
+        <span class="closing-sign">¡Nos vemos pronto!</span>
+        <p style="color: var(--navy); font-size: 0.85rem; margin: 1rem 0 0.3rem; font-weight: 500;">Con mucho cariño,</p>
+        <p class="closing-from">Los papás de Samuel<br>& sus amigos ingenieros 🖥️💙</p>
+      </div>
+
+      <div class="footer-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // Generar estrellas aleatorias
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star-dot';
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      animation-delay: ${Math.random() * 3}s;
+      animation-duration: ${1.5 + Math.random() * 2}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  let currentScreen = 1;
+
+  function goTo(n) {
+    const cur = document.getElementById(`screen-${currentScreen}`);
+    const next = document.getElementById(`screen-${n}`);
+
+    cur.classList.add('hidden');
+
+    if (n === 4) {
+      next.classList.remove('hidden');
+      next.style.position = 'relative';
+      next.style.inset = 'auto';
+      next.style.zIndex = '5';
+      document.body.style.background = '#fdfaf5';
+      setTimeout(triggerReveal, 300);
+    } else {
+      next.classList.remove('hidden');
+    }
+
+    currentScreen = n;
+
+    // Pantalla 3: transición automática
+    if (n === 3) {
+      setTimeout(() => goTo(4), 3000);
+    }
+  }
+
+  // Scroll reveal para pantalla 4
+  function triggerReveal() {
+    const items = document.querySelectorAll('#screen-4 .reveal');
+    items.forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 180);
+    });
+  }
+
+  // Fallback: si IntersectionObserver disponible en pantalla 4
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('#screen-4 .reveal').forEach(el => obs.observe(el));
+  }
+</script>
+
+</body>
+</html>
