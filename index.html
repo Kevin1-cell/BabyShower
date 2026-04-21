@@ -5,794 +5,389 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Baby Shower · Samuel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --sky: #b8d8f8;
-    --sky-light: #e8f4ff;
-    --navy: #1a3a5c;
-    --gold: #c9a96e;
-    --cream: #fdfaf5;
-    --blush: #f0e6d3;
-    --soft-blue: #d6eaf8;
-    --star: #ffd166;
-  }
+:root{
+  --navy:#0d2a47;--navy2:#1a3a5c;
+  --sky:#7ec8e3;--sky-lt:#d0ecf7;
+  --cream:#fdfaf4;--gold:#c9a66b;--gold2:#e8c97a;
+  --blush:#f5ede0;--white:#ffffff
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{background:#07182c;font-family:'DM Sans',sans-serif;overflow-x:hidden;min-height:100vh}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* ─ SCREENS ─ */
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s ease,transform .9s ease;z-index:10;overflow:hidden}
+.screen.gone{opacity:0;pointer-events:none;transform:scale(1.06)}
 
-  body {
-    background: #0a1628;
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
-  }
+/* ─ S1 INTRO ─ */
+#s1{background:radial-gradient(ellipse at 55% 35%,#13304f 0%,#07182c 70%)}
+.sf{position:absolute;inset:0}
+.sd{position:absolute;border-radius:50%;background:#fff;animation:twk var(--d,2s) var(--dl,0s) infinite alternate ease-in-out}
+@keyframes twk{from{opacity:.07;transform:scale(.7)}to{opacity:.9;transform:scale(1.3)}}
+.ptc{position:absolute;border-radius:50%;background:var(--sky);opacity:.15;animation:pf var(--pd,7s) var(--pdl,0s) infinite ease-in-out alternate}
+@keyframes pf{from{transform:translateY(0) rotate(0)}to{transform:translateY(-28px) rotate(180deg)}}
 
-  /* ─── PANTALLAS ─── */
-  .screen {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    z-index: 10;
-  }
-  .screen.hidden { opacity: 0; pointer-events: none; transform: scale(1.04); }
+.s1i{position:relative;z-index:2;text-align:center;padding:2rem 2.5rem}
+.moon{font-size:3.8rem;display:block;animation:mf 4s ease-in-out infinite;margin-bottom:1.2rem}
+@keyframes mf{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(5deg)}}
+.s1pre{color:var(--sky);font-size:.78rem;letter-spacing:.38em;text-transform:uppercase;opacity:0;animation:fu .8s .3s both;font-weight:300}
+.s1h{font-family:'Cormorant Garamond',serif;font-style:italic;color:#fff;font-size:clamp(2.4rem,11vw,3.6rem);line-height:1.1;margin:.4rem 0 .8rem;opacity:0;animation:fu .9s .8s both}
+.s1p{color:rgba(255,255,255,.6);font-size:clamp(.82rem,3.4vw,.93rem);line-height:1.7;font-weight:300;max-width:300px;opacity:0;animation:fu .9s 1.3s both}
+.s1btn{margin-top:2.2rem;padding:.8rem 2.2rem;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.08em;cursor:pointer;opacity:0;animation:fu .9s 1.9s both;box-shadow:0 4px 22px rgba(201,166,107,.4);transition:transform .2s}
+.s1btn:active{transform:scale(.96)}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-  /* ─── PANTALLA 1: INTRO OSCURA ─── */
-  #screen-1 {
-    background: radial-gradient(ellipse at 60% 40%, #1a3a5c 0%, #0a1628 70%);
-    overflow: hidden;
-  }
+/* ─ S2 MENSAJE ─ */
+#s2{background:linear-gradient(150deg,#0d2a47 0%,#07182c 100%);padding:1.5rem}
+.mc{background:rgba(255,255,255,.04);border:1px solid rgba(126,200,227,.18);border-radius:28px;padding:2.6rem 2rem;max-width:370px;text-align:center;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.mc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(126,200,227,.07) 0%,transparent 60%);pointer-events:none}
+.mce{font-size:2.8rem;display:block;margin-bottom:1.1rem;animation:bi .7s .3s both}
+@keyframes bi{0%{transform:scale(0);opacity:0}65%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.mch{font-family:'Cormorant Garamond',serif;color:#fff;font-size:clamp(1.3rem,5.5vw,1.55rem);margin-bottom:1rem;line-height:1.3}
+.mcb{color:rgba(255,255,255,.7);font-size:clamp(.84rem,3.4vw,.95rem);line-height:1.85;font-weight:300}
+.mchl{color:var(--gold);font-weight:500}
+.mcbtn{margin-top:1.8rem;padding:.8rem 0;background:transparent;color:var(--sky);border:1.5px solid rgba(126,200,227,.4);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.84rem;letter-spacing:.06em;cursor:pointer;transition:all .3s;display:block;width:100%}
 
-  .stars-bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-  .star-dot {
-    position: absolute;
-    border-radius: 50%;
-    background: white;
-    animation: twinkle 2.5s infinite ease-in-out alternate;
-  }
+/* ─ S3 SHIMMER ─ */
+#s3{background:#07182c;z-index:20}
+.s3w{text-align:center;position:relative;padding:2rem}
 
-  @keyframes twinkle {
-    from { opacity: 0.1; transform: scale(0.8); }
-    to   { opacity: 0.9; transform: scale(1.2); }
-  }
+/* SHIMMER con luz que recorre */
+.sname{
+  font-family:'Pinyon Script',cursive;
+  font-size:clamp(5rem,22vw,8rem);line-height:1;
+  position:relative;display:inline-block;
+  background:linear-gradient(90deg,#4ab0d4,#fff,var(--gold),#fff,#4ab0d4);
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  opacity:0;
+  animation:npop 1s .2s both, shim 3s 1.3s infinite linear
+}
+@keyframes npop{0%{opacity:0;transform:scale(.55) rotate(-4deg)}70%{opacity:1;transform:scale(1.06) rotate(1deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes shim{0%{background-position:200% center}100%{background-position:-200% center}}
 
-  .intro-content {
-    position: relative;
-    text-align: center;
-    padding: 2rem;
-    z-index: 2;
-  }
+/* rayo de luz que pasa */
+.sname::after{
+  content:'';position:absolute;
+  top:-5%;left:-30%;width:35%;height:110%;
+  background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.6) 50%,transparent 75%);
+  animation:lp 2.6s 1.5s infinite ease-in-out;pointer-events:none
+}
+@keyframes lp{0%{left:-35%;opacity:0}5%{opacity:1}100%{left:120%;opacity:0}}
 
-  .moon-icon {
-    font-size: 4rem;
-    animation: moonFloat 3s ease-in-out infinite;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  @keyframes moonFloat {
-    0%,100% { transform: translateY(0) rotate(-5deg); }
-    50%      { transform: translateY(-12px) rotate(5deg); }
-  }
+.s3sub{color:var(--sky);font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;margin-top:.5rem;opacity:0;animation:fu .7s 1s both}
+.s3bw{width:180px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;margin:2.5rem auto 0;overflow:hidden}
+.s3b{height:100%;background:linear-gradient(90deg,var(--sky),var(--gold));width:0;animation:bf 2.5s .6s both ease-out}
+@keyframes bf{from{width:0}to{width:100%}}
 
-  .intro-pre {
-    color: var(--sky);
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards ease;
-    font-weight: 300;
-  }
+/* ─ S4 INVITACIÓN ─ */
+#s4{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;background:var(--cream);display:none;z-index:5;-webkit-overflow-scrolling:touch}
+#s4.active{display:block}
 
-  .intro-title {
-    font-family: 'Great Vibes', cursive;
-    color: white;
-    font-size: clamp(3.2rem, 14vw, 5rem);
-    line-height: 1;
-    margin: 0.3rem 0 1rem;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.9s forwards ease;
-  }
+/* fondo polka dots */
+.ibg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle,rgba(126,200,227,.2) 1.5px,transparent 1.5px),
+    linear-gradient(165deg,#c8e8f5 0%,#e2f4fb 28%,var(--cream) 58%);
+  background-size:26px 26px,100% 100%
+}
+.ibg::before{content:'';position:absolute;top:-90px;right:-70px;width:300px;height:300px;border-radius:50%;background:rgba(126,200,227,.18)}
+.ibg::after{content:'';position:absolute;bottom:100px;left:-50px;width:180px;height:180px;border-radius:50%;background:rgba(201,166,107,.1)}
 
-  .intro-sub {
-    color: var(--sky);
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
-    font-weight: 300;
-    opacity: 0;
-    animation: fadeUp 0.9s 1.4s forwards ease;
-    line-height: 1.6;
-    max-width: 300px;
-  }
+.ib{position:relative;z-index:2;padding:3rem 1.8rem 5rem;max-width:420px;margin:0 auto;text-align:center}
 
-  .intro-btn {
-    margin-top: 2.5rem;
-    padding: 0.85rem 2.4rem;
-    background: linear-gradient(135deg, var(--gold), #e6c278);
-    color: var(--navy);
-    border: none;
-    border-radius: 50px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    opacity: 0;
-    animation: fadeUp 0.9s 2s forwards ease;
-    box-shadow: 0 4px 24px rgba(201,169,110,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .intro-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.5); }
-  .intro-btn:active { transform: scale(0.97); }
+/* badge */
+.ibadge{display:inline-block;background:var(--navy);color:var(--gold);font-size:.63rem;letter-spacing:.35em;text-transform:uppercase;padding:.36rem 1.2rem;border-radius:50px;margin-bottom:1.8rem;font-weight:500}
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+/* ─ VALECITA ─ */
+.vsec{background:linear-gradient(135deg,#0d2a47,#1a3a5c);border-radius:22px;padding:1.8rem 1.5rem;margin-bottom:1.8rem;position:relative;overflow:hidden}
+.vsec::before{content:'🤍';font-size:7rem;position:absolute;right:-10px;top:50%;transform:translateY(-50%) rotate(12deg);opacity:.06;pointer-events:none}
+.vlbl{color:var(--sky);font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.4rem;font-weight:500}
+.vname{
+  font-family:'Pinyon Script',cursive;
+  font-size:clamp(3.2rem,14vw,5rem);line-height:1;display:block;
+  background:linear-gradient(90deg,#d0ecf7,#fff,var(--gold2),#fff,#d0ecf7);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shim 4.5s 0s infinite linear;
+  position:relative
+}
+.vname::after{
+  content:'';position:absolute;top:-5%;left:-30%;width:30%;height:110%;
+  background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.5) 50%,transparent 75%);
+  animation:lp 3s 2s infinite ease-in-out;pointer-events:none
+}
+.vsub{color:rgba(255,255,255,.85);font-size:.84rem;font-weight:300;line-height:1.6;margin-top:.6rem}
 
-  /* ─── PANTALLA 2: MENSAJE PERSONAL ─── */
-  #screen-2 {
-    background: linear-gradient(160deg, #1a3a5c 0%, #0f2340 100%);
-    padding: 2rem;
-  }
+/* ─ BABY SHOWER title ─ */
+.ipre{color:rgba(13,42,71,.7);font-size:.8rem;font-weight:400;letter-spacing:.06em;margin-bottom:.1rem;margin-top:.2rem}
+.iname{
+  font-family:'Pinyon Script',cursive;
+  font-size:clamp(5.5rem,24vw,8rem);color:transparent;line-height:1;display:block;
+  background:linear-gradient(120deg,var(--navy),#2a6496,var(--sky),var(--navy2));
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:shim 5s 0s infinite linear
+}
+.itag{color:var(--gold);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;margin-bottom:2.2rem}
 
-  .message-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(184,216,248,0.2);
-    border-radius: 24px;
-    padding: 2.5rem 2rem;
-    max-width: 380px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-  }
-  .message-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 60% 30%, rgba(184,216,248,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
+/* ─ ILUSTRACIÓN CIGÜEÑA ─ */
+.illo{width:160px;height:170px;margin:0 auto 1.8rem;position:relative}
+/* globos */
+.gb{position:absolute;border-radius:50% 50% 50% 50%/55% 55% 45% 45%;animation:gbf 3s ease-in-out infinite alternate}
+.gb::after{content:'';position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:1.5px;height:16px;background:rgba(13,42,71,.2)}
+.gb1{width:40px;height:48px;background:#7ec8e3;top:16px;left:2px}
+.gb2{width:34px;height:40px;background:var(--gold);top:6px;left:58px;animation-delay:.45s}
+.gb3{width:38px;height:44px;background:#4ab0d4;top:20px;right:4px;animation-delay:.9s}
+@keyframes gbf{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-10px) rotate(3deg)}}
+/* cigüeña */
+.st{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100px;height:80px}
+.stb{width:56px;height:32px;background:#f2f0eb;border-radius:50% 60% 35% 35%;position:absolute;top:10px;left:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.stw1,.stw2{position:absolute;background:#e8e4dc;border-radius:20px 4px 4px 20px}
+.stw1{width:34px;height:14px;top:22px;left:50px;transform:rotate(-15deg)}
+.stw2{width:28px;height:12px;top:30px;left:6px;transform:rotate(10deg);border-radius:4px 20px 20px 4px}
+.stn{width:14px;height:28px;background:#f2f0eb;border-radius:7px 7px 0 0;position:absolute;top:-16px;left:54px}
+.sth{width:20px;height:18px;background:#f2f0eb;border-radius:50%;position:absolute;top:-30px;left:48px}
+.stbk{width:22px;height:6px;background:#e07718;border-radius:3px;position:absolute;top:-24px;left:64px}
+.ste{width:5px;height:5px;background:#0d2a47;border-radius:50%;position:absolute;top:-27px;left:53px}
+.stl1,.stl2{width:3.5px;height:26px;background:#e07718;position:absolute;bottom:-24px;border-radius:2px}
+.stl1{left:30px;transform:rotate(6deg)}
+.stl2{left:42px;transform:rotate(-6deg)}
+.stpk{width:36px;height:32px;background:#7ec8e3;border-radius:50%;position:absolute;bottom:4px;left:2px;box-shadow:0 2px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.strb{width:10px;height:10px;background:var(--gold);border-radius:50%;position:absolute;top:-3px;left:14px}
 
-  .envelope-emoji {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 1.2rem;
-    animation: bounceIn 0.6s 0.3s both;
-  }
-  @keyframes bounceIn {
-    0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(1); }
-  }
+/* ─ huellas ─ */
+.fp{display:flex;gap:7px;justify-content:center;margin:1.2rem 0;flex-wrap:wrap;opacity:.3}
+.fpi{font-size:1.3rem;animation:fpf var(--fpd,2s) var(--fpdl,0s) infinite ease-in-out alternate}
+@keyframes fpf{from{transform:translateY(0)}to{transform:translateY(-7px)}}
 
-  .message-title {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
-    margin-bottom: 1.2rem;
-    line-height: 1.3;
-  }
+/* ─ DIVIDER ─ */
+.dv{display:flex;align-items:center;gap:.9rem;margin:1.6rem 0;color:var(--gold);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 
-  .message-body {
-    color: rgba(255,255,255,0.75);
-    font-size: clamp(0.88rem, 3.5vw, 0.98rem);
-    line-height: 1.8;
-    font-weight: 300;
-  }
+/* ─ INFO BLOQUE EDITORIAL ─ */
+.info-block{margin:0 0 .5rem;text-align:center}
+.info-row{
+  display:flex;align-items:baseline;justify-content:center;gap:.6rem;
+  padding:.9rem 0;border-bottom:1px solid rgba(13,42,71,.1)
+}
+.info-row:last-child{border-bottom:none}
+.info-key{
+  font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold);font-weight:600;
+  min-width:62px;text-align:right;flex-shrink:0
+}
+.info-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.15rem,5vw,1.45rem);
+  color:#0a1f36;font-weight:700;line-height:1.2;text-align:left
+}
+.info-val em{
+  display:block;font-family:'DM Sans',sans-serif;
+  font-style:normal;font-size:.75rem;font-weight:400;
+  color:rgba(10,31,54,.5);letter-spacing:.02em;margin-top:.1rem
+}
 
-  .highlight-text {
-    color: var(--gold);
-    font-weight: 500;
-  }
+/* ─ REGALO ─ */
+.rg{background:linear-gradient(135deg,#0d2a47,#1a3a5c);border-radius:20px;padding:1.7rem 1.5rem;margin:1.3rem 0;position:relative;overflow:hidden}
+.rg::before{content:'🎈';font-size:5.5rem;position:absolute;right:-8px;top:50%;transform:translateY(-50%) rotate(20deg);opacity:.07;pointer-events:none}
+.rgt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--sky);margin-bottom:.55rem}
+.rgp{font-size:.85rem;line-height:1.78;color:rgba(255,255,255,.88);font-weight:300}
+.rghl{color:var(--gold2);font-style:italic}
 
-  .msg-btn {
-    margin-top: 2rem;
-    padding: 0.85rem 2.2rem;
-    background: transparent;
-    color: var(--sky);
-    border: 1.5px solid rgba(184,216,248,0.5);
-    border-radius: 50px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: block;
-    width: 100%;
-  }
-  .msg-btn:hover { background: rgba(184,216,248,0.1); border-color: var(--sky); }
+/* ─ CIERRE ─ */
+.clos{text-align:center;margin-top:2rem;padding:1.5rem 1rem}
+.closq{font-family:'Cormorant Garamond',serif;font-style:italic;color:#0a1f36;font-size:clamp(.95rem,4vw,1.08rem);line-height:1.7;margin-bottom:1.5rem;opacity:.88}
+.closs{font-family:'Pinyon Script',cursive;color:var(--gold);font-size:clamp(2.2rem,10vw,3.2rem);display:block;margin:.4rem 0}
+.closf{color:rgba(10,31,54,.65);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;line-height:1.85}
+.frow{display:flex;justify-content:center;gap:8px;margin-top:2rem;padding-bottom:3rem}
+.fd{width:8px;height:8px;border-radius:50%;background:var(--sky);opacity:.35}
+.fd:nth-child(2){background:var(--gold);opacity:.7;width:10px;height:10px}
+.fd:nth-child(3){opacity:.2}
 
-  /* ─── PANTALLA 3: TRANSICIÓN ─── */
-  #screen-3 {
-    background: #0a1628;
-    z-index: 20;
-  }
-
-  .transition-content {
-    text-align: center;
-    position: relative;
-  }
-
-  .big-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(4rem, 20vw, 7rem);
-    color: white;
-    line-height: 1;
-    opacity: 0;
-    animation: namePop 1s 0.2s both;
-  }
-  @keyframes namePop {
-    0% { opacity: 0; transform: scale(0.6) rotate(-3deg); }
-    70% { opacity: 1; transform: scale(1.05) rotate(1deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0); }
-  }
-
-  .transition-sub {
-    color: var(--sky);
-    font-size: 0.8rem;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 0.7s 1s both;
-  }
-
-  .progress-bar-wrap {
-    width: 200px;
-    height: 2px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    margin: 2.5rem auto 0;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--sky), var(--gold));
-    width: 0;
-    border-radius: 2px;
-    animation: fillBar 2.2s 0.5s both ease-out;
-  }
-  @keyframes fillBar {
-    from { width: 0; }
-    to   { width: 100%; }
-  }
-
-  /* ─── PANTALLA 4: INVITACIÓN PRINCIPAL ─── */
-  #screen-4 {
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: var(--cream);
-    display: block;
-    z-index: 5;
-  }
-  #screen-4.hidden { display: none; }
-  #screen-4:not(.hidden) { display: block; }
-
-  .inv-wrapper {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Fondo decorativo */
-  .inv-bg-top {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 55%;
-    background: linear-gradient(170deg, #b8d8f8 0%, #d6eaf8 50%, var(--cream) 100%);
-    z-index: 0;
-  }
-  .inv-bg-circles {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .inv-bg-circles::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 280px; height: 280px;
-    border-radius: 50%;
-    background: rgba(184,216,248,0.4);
-  }
-  .inv-bg-circles::after {
-    content: '';
-    position: absolute;
-    top: 200px; left: -60px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: rgba(201,169,110,0.1);
-  }
-
-  .inv-content {
-    position: relative;
-    z-index: 2;
-    padding: 3rem 1.8rem 4rem;
-    max-width: 420px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  /* Cabecera */
-  .inv-badge {
-    display: inline-block;
-    background: var(--navy);
-    color: var(--gold);
-    font-size: 0.68rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    padding: 0.4rem 1.2rem;
-    border-radius: 50px;
-    margin-bottom: 1.8rem;
-    font-weight: 500;
-  }
-
-  .inv-announce {
-    color: var(--navy);
-    font-size: clamp(0.85rem, 3.2vw, 0.95rem);
-    font-weight: 300;
-    margin-bottom: 0.4rem;
-    opacity: 0.7;
-    letter-spacing: 0.02em;
-  }
-
-  .inv-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(5rem, 22vw, 7.5rem);
-    color: var(--navy);
-    line-height: 0.95;
-    margin-bottom: 0.3rem;
-    text-shadow: 2px 3px 0 rgba(26,58,92,0.12);
-  }
-
-  .inv-tag {
-    color: var(--gold);
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Ilustración central (CSS art bebé) */
-  .baby-illo {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 2.5rem;
-    position: relative;
-  }
-
-  /* Globos CSS */
-  .balloon {
-    position: absolute;
-    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
-    animation: floatBalloon 3s ease-in-out infinite alternate;
-  }
-  .b1 { width: 45px; height: 52px; background: #b8d8f8; top: 25px; left: 10px; animation-delay: 0s; }
-  .b2 { width: 38px; height: 44px; background: var(--gold); top: 15px; left: 60px; animation-delay: 0.4s; }
-  .b3 { width: 42px; height: 49px; background: #90c2e8; top: 30px; right: 12px; animation-delay: 0.8s; }
-  .balloon::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1.5px;
-    height: 14px;
-    background: rgba(26,58,92,0.3);
-  }
-  @keyframes floatBalloon {
-    from { transform: translateY(0) rotate(-2deg); }
-    to   { transform: translateY(-8px) rotate(2deg); }
-  }
-
-  /* Cochecito de bebé */
-  .stroller {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 60px;
-  }
-  .stroller-body {
-    width: 60px;
-    height: 38px;
-    background: var(--navy);
-    border-radius: 16px 16px 4px 4px;
-    position: absolute;
-    top: 0; left: 10px;
-    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
-  }
-  .stroller-body::before {
-    content: '';
-    position: absolute;
-    top: 6px; left: 8px;
-    width: 44px; height: 20px;
-    background: var(--sky);
-    border-radius: 10px 10px 2px 2px;
-  }
-  .stroller-handle {
-    width: 50px;
-    height: 3px;
-    background: var(--navy);
-    position: absolute;
-    top: 3px;
-    right: 0;
-    border-radius: 2px;
-    transform: rotate(-12deg);
-    transform-origin: right center;
-  }
-  .wheel {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--navy);
-    position: absolute;
-    bottom: 0;
-    border: 3px solid var(--sky);
-  }
-  .wheel-l { left: 10px; }
-  .wheel-r { right: 10px; }
-
-  /* Divider decorativo */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem 0;
-    color: var(--gold);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
-  /* Cards de info */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-  }
-  .info-card {
-    background: white;
-    border-radius: 16px;
-    padding: 1.2rem 0.8rem;
-    box-shadow: 0 2px 16px rgba(26,58,92,0.08);
-    border: 1px solid rgba(184,216,248,0.4);
-  }
-  .info-card.full { grid-column: 1 / -1; }
-
-  .info-icon { font-size: 1.6rem; margin-bottom: 0.4rem; display: block; }
-  .info-label {
-    color: var(--gold);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-  }
-  .info-value {
-    color: var(--navy);
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(0.95rem, 4vw, 1.1rem);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .info-sub {
-    color: rgba(26,58,92,0.5);
-    font-size: 0.75rem;
-    margin-top: 0.2rem;
-  }
-
-  /* Sección lleva lo que quieras */
-  .regalo-section {
-    background: linear-gradient(135deg, #1a3a5c, #0f2340);
-    border-radius: 20px;
-    padding: 1.8rem 1.5rem;
-    margin: 1.5rem 0;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .regalo-section::before {
-    content: '🎁';
-    font-size: 6rem;
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%) rotate(15deg);
-    opacity: 0.08;
-  }
-  .regalo-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-    color: var(--sky);
-  }
-  .regalo-text {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.75);
-    font-weight: 300;
-  }
-  .regalo-highlight {
-    color: var(--gold);
-    font-style: italic;
-  }
-
-  /* Cierre */
-  .closing {
-    margin-top: 2.5rem;
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-  .closing-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--navy);
-    font-size: clamp(1rem, 4.5vw, 1.2rem);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
-  }
-  .closing-sign {
-    font-family: 'Great Vibes', cursive;
-    color: var(--gold);
-    font-size: clamp(2rem, 9vw, 2.8rem);
-    display: block;
-    margin: 0.5rem 0;
-  }
-  .closing-from {
-    color: rgba(26,58,92,0.5);
-    font-size: 0.78rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  /* Footer dots */
-  .footer-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--sky);
-    opacity: 0.4;
-  }
-  .dot:nth-child(2) { background: var(--gold); opacity: 0.7; }
-  .dot:nth-child(3) { opacity: 0.25; }
-
-  /* Estrellas decorativas en invitación */
-  .deco-star {
-    position: absolute;
-    color: var(--gold);
-    font-size: 1rem;
-    opacity: 0.3;
-    animation: spin 8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Scroll reveal para pantalla 4 */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: none; }
-
+/* ─ REVEAL ─ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
-<!-- ══════════ SCREEN 1: INTRO ══════════ -->
-<div class="screen" id="screen-1">
-  <div class="stars-bg" id="stars"></div>
-  <div class="intro-content">
-    <span class="moon-icon">🌙</span>
-    <p class="intro-pre">Espera... que esto es especial</p>
-    <h1 class="intro-title">Algo hermoso<br>está por llegar</h1>
-    <p class="intro-sub">Hay noticias que se merecen ser celebradas con toda la energía del universo ✨</p>
-    <button class="intro-btn" onclick="goTo(2)">Abrir &nbsp;→</button>
+<!-- S1 INTRO -->
+<div class="screen" id="s1">
+  <div class="sf" id="sf"></div>
+  <div class="ptc" style="width:80px;height:80px;top:15%;left:8%;--pd:7s;--pdl:0s"></div>
+  <div class="ptc" style="width:50px;height:50px;top:70%;right:10%;--pd:5s;--pdl:1s;background:var(--gold);opacity:.1"></div>
+  <div class="ptc" style="width:28px;height:28px;top:42%;right:6%;--pd:8s;--pdl:2s"></div>
+  <div class="s1i">
+    <span class="moon">🌙</span>
+    <p class="s1pre">Psst... esto es para ti</p>
+    <h1 class="s1h">Algo hermoso<br>está a punto<br>de llegar</h1>
+    <p class="s1p">Hay noticias que merecen celebrarse con toda la energía del universo ✨</p>
+    <button class="s1btn" onclick="goTo(2)">Abrir &nbsp;→</button>
   </div>
 </div>
 
-<!-- ══════════ SCREEN 2: MENSAJE PERSONAL ══════════ -->
-<div class="screen hidden" id="screen-2">
-  <div class="message-card">
-    <span class="envelope-emoji">💌</span>
-    <h2 class="message-title">Si esto te llegó,<br>no fue por accidente</h2>
-    <p class="message-body">
-      Este enlace no está en internet, no se comparte en redes, no aparece en Google.<br><br>
-      Llegó a ti porque hay personas que te tienen muy presente y que quieren que seas parte de algo bonito.<br><br>
-      <span class="highlight-text">Eso ya dice mucho de ti.</span> 🩵
+<!-- S2 MENSAJE -->
+<div class="screen gone" id="s2">
+  <div class="mc">
+    <span class="mce">💌</span>
+    <h2 class="mch">Si esto te llegó,<br>no fue casualidad</h2>
+    <p class="mcb">
+      Este enlace no está en redes, no aparece en Google, no se comparte al azar.<br><br>
+      Llegó a ti porque hay personas que te tienen <span class="mchl">muy, muy presente</span>
+      y quieren que seas parte de algo que vale muchísimo.<br><br>
+      Eso ya dice todo. 🩵
     </p>
-    <button class="msg-btn" onclick="goTo(3)">Ver la invitación →</button>
+    <button class="mcbtn" onclick="goTo(3)">Ver de qué se trata →</button>
   </div>
 </div>
 
-<!-- ══════════ SCREEN 3: TRANSICIÓN ══════════ -->
-<div class="screen hidden" id="screen-3">
-  <div class="transition-content">
-    <h1 class="big-name">Samuel</h1>
-    <p class="transition-sub">viene en camino</p>
-    <div class="progress-bar-wrap">
-      <div class="progress-bar-fill"></div>
-    </div>
+<!-- S3 SHIMMER SAMUEL -->
+<div class="screen gone" id="s3">
+  <div class="s3w">
+    <span class="sname">Samuel</span>
+    <p class="s3sub">viene en camino</p>
+    <div class="s3bw"><div class="s3b"></div></div>
   </div>
 </div>
 
-<!-- ══════════ SCREEN 4: INVITACIÓN ══════════ -->
-<div class="screen hidden" id="screen-4">
-  <div class="inv-wrapper">
-    <div class="inv-bg-top"></div>
-    <div class="inv-bg-circles"></div>
+<!-- S4 INVITACIÓN -->
+<div class="screen gone" id="s4">
+  <div class="ibg"></div>
+  <div class="ib">
 
-    <div class="inv-content">
+    <div class="rv"><span class="ibadge">✦ Invitación Oficial ✦</span></div>
 
-      <div class="reveal">
-        <span class="inv-badge">✦ Invitación Oficial ✦</span>
-        <p class="inv-announce">Los papás de</p>
-        <h1 class="inv-name">Samuel</h1>
-        <p class="inv-tag">te invitan a su baby shower</p>
-      </div>
-
-      <!-- Ilustración -->
-      <div class="baby-illo reveal">
-        <div class="balloon b1"></div>
-        <div class="balloon b2"></div>
-        <div class="balloon b3"></div>
-        <div class="stroller">
-          <div class="stroller-handle"></div>
-          <div class="stroller-body"></div>
-          <div class="wheel wheel-l"></div>
-          <div class="wheel wheel-r"></div>
-        </div>
-      </div>
-
-      <!-- Info cards -->
-      <div class="info-grid reveal">
-        <div class="info-card">
-          <span class="info-icon">📅</span>
-          <p class="info-label">Fecha</p>
-          <p class="info-value">Viernes<br>02 de Mayo</p>
-        </div>
-        <div class="info-card">
-          <span class="info-icon">🕐</span>
-          <p class="info-label">Hora</p>
-          <p class="info-value">Por confirmar</p>
-          <p class="info-sub">TBD</p>
-        </div>
-        <div class="info-card full">
-          <span class="info-icon">📍</span>
-          <p class="info-label">Lugar</p>
-          <p class="info-value">Conjunto Residencial<br>Monte Azul</p>
-          <p class="info-sub">Armenia, Quindío</p>
-        </div>
-      </div>
-
-      <!-- Lo que quieran llevar -->
-      <div class="divider reveal">✦</div>
-
-      <div class="regalo-section reveal">
-        <p class="regalo-title">¿Llevar algo?</p>
-        <p class="regalo-text">
-          Tu presencia ya es el mejor regalo del mundo, de verdad.<br><br>
-          Dicho eso, si el corazón te dice traer algo para Samuel, 
-          <span class="regalo-highlight">lo que salga del alma está perfecto</span> — 
-          desde un pañal hasta un abrazo, todo suma para darle la bienvenida que se merece 🍼
-        </p>
-      </div>
-
-      <!-- Cierre -->
-      <div class="closing reveal">
-        <p class="closing-quote">
-          "Cada bebé llega al mundo con el mensaje de que Dios aún no ha perdido la esperanza en la humanidad."
-        </p>
-        <div class="divider">✦</div>
-        <span class="closing-sign">¡Nos vemos pronto!</span>
-        <p style="color: var(--navy); font-size: 0.85rem; margin: 1rem 0 0.3rem; font-weight: 500;">Con mucho cariño,</p>
-        <p class="closing-from">Los papás de Samuel<br>& sus amigos ingenieros 🖥️💙</p>
-      </div>
-
-      <div class="footer-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-
+    <!-- VALECITA -->
+    <div class="vsec rv">
+      <p class="vlbl">Con todo el amor para</p>
+      <span class="vname">Valecita</span>
+      <p class="vsub">
+        aka <strong style="color:rgba(255,255,255,.88)">Laura Valeria Valencia</strong><br>
+        la mamá más hermosa que está a punto de conocer<br>
+        el amor más grande de su vida 💙
+      </p>
     </div>
+
+    <!-- BABY SHOWER SAMUEL -->
+    <div class="rv">
+      <p class="ipre">Los amigos de Valecita te invitan al</p>
+      <span class="iname">Baby Shower</span>
+      <p class="itag">del pequeño Samuel</p>
+    </div>
+
+    <!-- ILUSTRACIÓN -->
+    <div class="illo rv">
+      <div class="gb gb1"></div>
+      <div class="gb gb2"></div>
+      <div class="gb gb3"></div>
+      <div class="st">
+        <div class="stw1"></div>
+        <div class="stw2"></div>
+        <div class="stb"></div>
+        <div class="stn"></div>
+        <div class="sth"></div>
+        <div class="stbk"></div>
+        <div class="ste"></div>
+        <div class="stl1"></div>
+        <div class="stl2"></div>
+        <div class="stpk">👶<div class="strb"></div></div>
+      </div>
+    </div>
+
+    <!-- HUELLAS -->
+    <div class="fp rv">
+      <span class="fpi" style="--fpd:2.2s;--fpdl:0s">👣</span>
+      <span class="fpi" style="--fpd:1.8s;--fpdl:.3s">👣</span>
+      <span class="fpi" style="--fpd:2.5s;--fpdl:.6s">👣</span>
+      <span class="fpi" style="--fpd:2s;--fpdl:.9s">👣</span>
+    </div>
+
+    <!-- INFO BLOQUE -->
+    <div class="info-block rv">
+      <div class="info-row">
+        <span class="info-key">Cuándo</span>
+        <span class="info-val">Viernes, 02 de Mayo<em>2025</em></span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Hora</span>
+        <span class="info-val">Por confirmar<em>¡Pronto!</em></span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Dónde</span>
+        <span class="info-val">Conj. Res. Monte Azul<em>Armenia, Quindío 🌿</em></span>
+      </div>
+    </div>
+
+    <div class="dv rv">✦</div>
+
+    <!-- REGALO -->
+    <div class="rg rv">
+      <p class="rgt">¿Y qué llevo?</p>
+      <p class="rgp">
+        Tu presencia ya es el regalo más bonito, de verdad.<br><br>
+        Si el corazón te dice traer algo para Samuel,
+        <span class="rghl">cualquier cosa que salga del alma está perfecta</span> —
+        desde un pañal hasta un abrazo cargado de amor, todo suma para darle la mejor bienvenida al mundo 🍼
+      </p>
+    </div>
+
+    <div class="dv rv">✦</div>
+
+    <!-- CIERRE -->
+    <div class="clos rv">
+      <p class="closq">
+        "Cada bebé llega al mundo trayendo el mensaje<br>de que la vida sigue siendo un milagro."
+      </p>
+      <span class="closs">¡Te esperamos!</span>
+      <p class="closf">
+        Con todo el amor,<br>
+        <strong style="color:var(--navy2)">Los amigos de Valecita</strong><br>
+        (sí, los ingenieros 🖥️💙 — lo hicimos en código y todo)
+      </p>
+    </div>
+
+    <div class="frow"><div class="fd"></div><div class="fd"></div><div class="fd"></div></div>
+
   </div>
 </div>
 
 <script>
-  // Generar estrellas aleatorias
-  const starsContainer = document.getElementById('stars');
-  for (let i = 0; i < 80; i++) {
-    const star = document.createElement('div');
-    star.className = 'star-dot';
-    const size = Math.random() * 3 + 1;
-    star.style.cssText = `
-      width: ${size}px;
-      height: ${size}px;
-      top: ${Math.random() * 100}%;
-      left: ${Math.random() * 100}%;
-      animation-delay: ${Math.random() * 3}s;
-      animation-duration: ${1.5 + Math.random() * 2}s;
-    `;
-    starsContainer.appendChild(star);
+// Estrellas
+const sf=document.getElementById('sf');
+for(let i=0;i<90;i++){
+  const s=document.createElement('div');s.className='sd';
+  const sz=Math.random()*3+1;
+  s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${1.5+Math.random()*2.5}s;--dl:${Math.random()*3}s`;
+  sf.appendChild(s);
+}
+
+let cur=1;
+function goTo(n){
+  document.getElementById('s'+cur).classList.add('gone');
+  const next=document.getElementById('s'+n);
+  if(n===4){
+    next.style.display='block';
+    next.classList.remove('gone');
+    document.body.style.background='#fdfaf4';
+    setTimeout(revealAll,400);
+  } else {
+    next.classList.remove('gone');
   }
+  cur=n;
+  if(n===3) setTimeout(()=>goTo(4),3300);
+}
 
-  let currentScreen = 1;
-
-  function goTo(n) {
-    const cur = document.getElementById(`screen-${currentScreen}`);
-    const next = document.getElementById(`screen-${n}`);
-
-    cur.classList.add('hidden');
-
-    if (n === 4) {
-      next.classList.remove('hidden');
-      next.style.position = 'relative';
-      next.style.inset = 'auto';
-      next.style.zIndex = '5';
-      document.body.style.background = '#fdfaf5';
-      setTimeout(triggerReveal, 300);
-    } else {
-      next.classList.remove('hidden');
-    }
-
-    currentScreen = n;
-
-    // Pantalla 3: transición automática
-    if (n === 3) {
-      setTimeout(() => goTo(4), 3000);
-    }
-  }
-
-  // Scroll reveal para pantalla 4
-  function triggerReveal() {
-    const items = document.querySelectorAll('#screen-4 .reveal');
-    items.forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 180);
-    });
-  }
-
-  // Fallback: si IntersectionObserver disponible en pantalla 4
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('#screen-4 .reveal').forEach(el => obs.observe(el));
-  }
+function revealAll(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+  },{threshold:.1});
+  document.querySelectorAll('#s4 .rv').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('in'),i*150);
+    obs.observe(el);
+  });
+}
 </script>
-
 </body>
 </html>
